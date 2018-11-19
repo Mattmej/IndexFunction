@@ -28,7 +28,6 @@ var charCollection = ""
 func isInStr(input: String, str: String) -> Bool {
     let ourStr = input.lowercased()
     var originalStr = str.lowercased()
-//    let originalStrWithoutDuplicates = originalStr.remove
     
     
     // Loops through the characters in the string input
@@ -63,13 +62,16 @@ func isInStr(input: String, str: String) -> Bool {
             
         }
         
+        // Separators for the console logs.
         print("")
         print("=======")
     }
     
     // -------- End of Loop --------
     
+    // Prints our current collection of characters
     print("charCollection = \(charCollection)")
+    
     // If the characters we collected matches our input string, return true.
     if charCollection == ourStr {
         return true
@@ -82,10 +84,11 @@ func isInStr(input: String, str: String) -> Bool {
     
 }
 
-//charsFromStr(input: "Fir")
 
-//isInStr(input:"Fir", str:"First")
-//isInStr(input:"sss", str:"First")
+
+
+
+
 
 func findStringIndex(input:String, str:String) -> Int {
     
