@@ -92,21 +92,17 @@ func isInStr(input: String, str: String) -> Bool {
 
 func findStringIndex(input:String, str:String) -> Int {
     
-//    let ourStr = input.lowercased()
     var originalStr = str.lowercased()
     var smallestNum: Int = str.count
     
     if isInStr(input: input, str: str) {
-//        return 1
+        
         var dictionary: [String:Int] = [:]
         
         for character in charCollection {
-//            let offset = find(originalStr, character)
-//            let diff = originalStr.distance(from: originalStr.startIndex, to:Int(originalStr.index(of:character)))
-//            dictionary[String(character)] = originalStr.index(of: character)
+
             
             let index = originalStr.index(of: character)?.encodedOffset
-//            let indexIntVal = originalStr.distance(from: originalStr.startIndex, to: index!)
             
 //            dictionary[String(character)] = Int(originalStr.index(of: character))
             dictionary[String(character)] = index
@@ -115,17 +111,14 @@ func findStringIndex(input:String, str:String) -> Int {
         
         print(dictionary)
         
-//        return 1
         
         // loop through dictionary
         
         var keyArray = Array(dictionary.keys)
-//        var smallestNum: Int
         
         for i in 0..<dictionary.count-1 {
             smallestNum = (dictionary[keyArray[i]])!
-//            var value1: Int = keyArray[i]
-//            var value: Int = Int(keyArray[i+1])!
+
             var value: Int = (dictionary[keyArray[i+1]])!
 
             if smallestNum > value {
@@ -136,11 +129,8 @@ func findStringIndex(input:String, str:String) -> Int {
                 continue
             }
             print(smallestNum)
-//            return smallestNum
         }
-//        print(keyArray)
         
-//        return 1
         return smallestNum
     }
     
@@ -148,6 +138,9 @@ func findStringIndex(input:String, str:String) -> Int {
         return -1
     }
 }
+
+
+
 
 //findStringIndex(input: "sss", str: "First")
 //findStringIndex(input: "rfi", str: "First")
