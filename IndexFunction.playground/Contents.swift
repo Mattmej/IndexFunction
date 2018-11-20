@@ -115,7 +115,7 @@ func findStringIndex(input:String, str:String) -> Int {
     if isInStr(input: input, str: str) {
         
         // Create an empty dictionary to hold each of the characters in the input string
-        var dictionary: [String:Int] = [:]
+        var dictionary: [String:[Int]] = [:]
         
         // For every character inside our charCollection (our input string)
         for character in charCollection {
@@ -178,6 +178,29 @@ func findStringIndex(input:String, str:String) -> Int {
     // If the inputted string is NOT in the original string, return an index of -1.
     else {
         return -1
+    }
+}
+
+func findSmallestIndexFromArray(array: [Int]) -> Int {
+    if array.count == 1 {
+        return array[0]
+    }
+    
+    else {
+        var smallest = array[0]
+        for i in 0..<array.count-1 {
+//            let smallest = array[i]
+            let nextVal = array[i+1]
+            if (smallest > nextVal) {
+                smallest == nextVal
+            }
+            
+            else {
+                continue
+            }
+        }
+        
+        return smallest
     }
 }
 
