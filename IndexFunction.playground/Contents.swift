@@ -93,18 +93,41 @@ func isInStr(input: String, str: String) -> Bool {
 func findStringIndex(input:String, str:String) -> Int {
     
     var originalStr = str.lowercased()
+    
+    /*
+     ==========================
+     Creating the Dictionary
+     ==========================
+     */
+    
+    
+    
+    // Set the smallest index number to the length of the string.
+    // This statement is to ensure that the starting "smallestNum" is bigger than any of the characters' indices.
     var smallestNum: Int = str.count
     
+    /* ========= */
+    /* !!! NOTE: At this point, the inputted string and charCollection are the same. !!! */
+    /* ========= */
+
+    
+    // If the input string is inside the original string, then...
     if isInStr(input: input, str: str) {
         
+        // Create an empty dictionary to hold each of the characters in the input string
         var dictionary: [String:Int] = [:]
         
+        // For every character inside our charCollection
         for character in charCollection {
 
-            
+            // This variable will hold the indices of original string.
+            // We will compare the charCollection's characters against the originalStr's characters.
             let index = originalStr.index(of: character)?.encodedOffset
             
 //            dictionary[String(character)] = Int(originalStr.index(of: character))
+            
+            
+            // Set the dictionary's value for the character in charCollection to its index in the original string.
             dictionary[String(character)] = index
             
         }
@@ -112,28 +135,45 @@ func findStringIndex(input:String, str:String) -> Int {
         print(dictionary)
         
         
-        // loop through dictionary
+        /* =================================================== */
         
+        
+        /*
+        ==========================
+        Finding the smallest index from the inputted string
+        ==========================
+        */
+        
+        
+        
+        // Create an array from the keys in the dictionary.
         var keyArray = Array(dictionary.keys)
         
-        for i in 0..<dictionary.count-1 {
-            smallestNum = (dictionary[keyArray[i]])!
+        // Loop through the dictionary's keys
+        for i in 0..<dictionary.count {
+            
+//            smallestNum = (dictionary[keyArray[i]])!
 
-            var value: Int = (dictionary[keyArray[i+1]])!
+            // Set a value equal to the current character's value in the dictionary.
+            var value: Int = (dictionary[keyArray[i]])!
 
+            // If the smallestNum is bigger than the value, set the smallestNum equal to the value.
             if smallestNum > value {
                 smallestNum = value
             }
 
+            // Otherwise, continue looping.
             else {
                 continue
             }
             print(smallestNum)
         }
         
+        // At the end, return the smallestNum.
         return smallestNum
     }
     
+    // If the inputted string is NOT in the original string, return an index of -1.
     else {
         return -1
     }
