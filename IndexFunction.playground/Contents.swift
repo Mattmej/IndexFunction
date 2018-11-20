@@ -117,7 +117,7 @@ func findStringIndex(input:String, str:String) -> Int {
         // Create an empty dictionary to hold each of the characters in the input string
         var dictionary: [String:Int] = [:]
         
-        // For every character inside our charCollection
+        // For every character inside our charCollection (our input string)
         for character in charCollection {
 
             // This variable will hold the indices of original string.
@@ -159,7 +159,9 @@ func findStringIndex(input:String, str:String) -> Int {
 
             // If the smallestNum is bigger than the value, set the smallestNum equal to the value.
             if smallestNum > value {
+                print("Old value = \(smallestNum)")
                 smallestNum = value
+                print("New value = \(smallestNum)")
             }
 
             // Otherwise, continue looping.
